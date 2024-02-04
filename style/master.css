@@ -1,0 +1,142 @@
+:root {
+    --main-color: #11e1a4;
+    --main-transtion: 0.5s ease;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+/* Start Settings box */
+.settings-box {
+    position: fixed;
+    left: -200px;
+    top: 0;
+    background-color: #fff;
+    width: 200px;
+    z-index: 1000;
+    min-height: 100vh;
+    transition: var(--main-transtion);
+}
+.settings-box.opened {
+    left: 0;
+}
+.settings-box .gear {
+    position: absolute;
+    right: -30px;
+    top: 150px;
+    background-color: #fff;
+    padding: 8px 0;
+    width: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+.settings-box .gear i {
+    font-size: 21px;
+}
+.settings-box .gear i.spin {
+    animation: spin 4s infinite linear;
+}
+/* End Settings box */
+/* Start Landing Page */
+.landing-page {
+    min-height: 85vh;
+    /* background-image: url(imgs/05.jpg); */
+    background-position: left bottom;
+    position: relative;
+    padding: 80px 90px;
+    transition: var(--main-transtion);
+}
+.landing-page .active {
+    color: var(--main-color);
+}
+.landing-page .overlay {
+    position: absolute;
+    background-color: rgb(12 30 25 / 38%);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+.header-area {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    display: flex;
+    /* padding: 20px 30px; */
+}
+.header-area .logo {
+    width: 300px;
+    font-size: 30px;
+    font-weight: bold;
+}
+.header-area .links {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+.header-area .links li:not(:last-child) {
+    display: inline-block;
+    margin-right: 80px;
+}
+.header-area .links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: var(--main-transtion);
+}
+
+.header-area .links li:hover a,
+.header-area .links li .active {
+    color: var(--main-color);
+}
+.introduction-text {
+    position: absolute;
+    top: 30%;
+    color: #fff;
+    z-index: 2;
+    width: 500px;
+}
+.introduction-text h1 {
+    font-size: 60px;
+}
+.introduction-text p {
+    line-height: 1.6;
+}
+.landing-page .wise-word {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    color: #fff;
+    font-size: 13px;
+    z-index: 2;
+    transform: rotate(270deg);
+}
+.introduction-text h1 span {
+    color: var(--main-color);
+}
+.introduction-text .explore,
+.introduction-text .read {
+    padding: 7px 13px;
+    border-radius: 11px;
+    border: 2px solid var(--main-color);
+    margin-top: 20px;
+    margin-right: 15px;
+    background: transparent;
+    color: var(--main-color);
+    cursor: pointer;
+    transition: var(--main-transtion);
+}
+.introduction-text .explore,
+.introduction-text .read:hover {
+    color: black;
+    background-color: var(--main-color);
+}
+
+
+/* Animation */
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
