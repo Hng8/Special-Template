@@ -19,6 +19,9 @@ body {
 .settings-box.opened {
     left: 0;
 }
+/* .settings-box.close {
+    left: -200px;
+} */
 .settings-box .gear {
     position: absolute;
     right: -30px;
@@ -32,9 +35,7 @@ body {
 .settings-box .gear i {
     font-size: 21px;
 }
-.settings-box .gear i.spin {
-    animation: spin 4s infinite linear;
-}
+
 /* End Settings box */
 /* Start Landing Page */
 .landing-page {
@@ -133,10 +134,3 @@ body {
     background-color: var(--main-color);
 }
 
-
-/* Animation */
-@keyframes spin {
-    100% {
-        transform: rotate(360deg);
-    }
-}

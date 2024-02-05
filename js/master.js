@@ -4,6 +4,9 @@ let settingsBox = document.querySelector(".settings-box");
 let  gear = document.querySelector(".gear");
 let gearIcon = document.querySelector(".gear i");
 
+// Settings 
+let Islose = true;
+
 // Get Array Of Images
 let imgsArray = ["01.jpg","02.jpg","03.jpg","04.jpg","05.jpg"];
 
@@ -22,6 +25,9 @@ setInterval(() => {
 
 // Select gear variable and Show setting box
 gear.addEventListener('click', () => {
-    settingsBox.classList.add("opened");
-    gearIcon.classList.add("spin")
+    // Toggle Class Fa-spin for Rotation On Self
+    gearIcon.classList.toggle("fa-spin");
+
+    // Toggle Class Open On Main Settings Box
+    settingsBox.classList.toggle("opened");
 });
