@@ -35,7 +35,46 @@ body {
 .settings-box .gear i {
     font-size: 21px;
 }
-
+.settings-box .option-box {
+    padding: 20px;
+}
+.settings-box .option-box h4 {
+    margin: 0;
+    color: #666;
+}
+.settings-box .option-box .colors-list {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+}
+.settings-box .option-box .colors-list li {
+    width: 25px;
+    height: 25px;
+    /* background-color: #333; */
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: .5;
+    display: inline-block;
+}
+.settings-box .option-box .colors-list li.active {
+    /* background-color: var(--main-color); */
+    opacity: 1;
+}
+.settings-box .option-box .colors-list li:first-child {
+    background-color: #11e1a4;
+}
+.settings-box .option-box .colors-list li:nth-child(2) {
+    background-color: #ef5350;
+}
+.settings-box .option-box .colors-list li:nth-child(3){
+    background-color: #03A9F4;
+}
+.settings-box .option-box .colors-list li:nth-child(4) {
+    background-color: #FF9800;
+}
+.settings-box .option-box .colors-list li:nth-child(5) {
+    background-color: #7e57c2;
+}
 /* End Settings box */
 /* Start Landing Page */
 .landing-page {
@@ -85,6 +124,7 @@ body {
     text-decoration: none;
     font-size: 18px;
     transition: var(--main-transtion);
+    font-weight: bold;
 }
 
 .header-area .links li:hover a,
@@ -97,6 +137,7 @@ body {
     color: #fff;
     z-index: 2;
     width: 500px;
+    
 }
 .introduction-text h1 {
     font-size: 60px;
@@ -115,6 +156,7 @@ body {
 }
 .introduction-text h1 span {
     color: var(--main-color);
+    transition: var(--main-transtion);
 }
 .introduction-text .explore,
 .introduction-text .read {
