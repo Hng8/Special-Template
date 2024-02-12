@@ -2,12 +2,15 @@
     --main-color: #11e1a4;
     --main-transtion: 0.5s ease;
 }
+
 body {
     font-family: 'Open Sans', sans-serif;
 }
+
 * {
     box-sizing: border-box;
 }
+
 /* Start Settings box */
 .settings-box {
     position: fixed;
@@ -19,9 +22,11 @@ body {
     min-height: 100vh;
     transition: var(--main-transtion);
 }
+
 .settings-box.opened {
     left: 0;
 }
+
 /* .settings-box.close {
     left: -200px;
 } */
@@ -35,9 +40,11 @@ body {
     text-align: center;
     cursor: pointer;
 }
+
 .settings-box .gear i {
     font-size: 21px;
 }
+
 .settings-box .option-box {
     padding: 15px;
     margin: 10px;
@@ -48,13 +55,15 @@ body {
     margin: 0;
     /* color: #666; */
     font-size: 13px;
-    
+
 }
+
 .settings-box .option-box .colors-list {
     list-style: none;
     text-align: center;
     padding: 0;
 }
+
 .settings-box .option-box .colors-list li {
     width: 25px;
     height: 25px;
@@ -63,21 +72,27 @@ body {
     cursor: pointer;
     display: inline-block;
 }
+
 .settings-box .option-box .colors-list li.active {
     border: 2px solid #333;
 }
+
 .settings-box .option-box .colors-list li:first-child {
     background-color: #11e1a4;
 }
+
 .settings-box .option-box .colors-list li:nth-child(2) {
     background-color: #ef5350;
 }
-.settings-box .option-box .colors-list li:nth-child(3){
+
+.settings-box .option-box .colors-list li:nth-child(3) {
     background-color: #03A9F4;
 }
+
 .settings-box .option-box .colors-list li:nth-child(4) {
     background-color: #FF9800;
 }
+
 .settings-box .option-box .colors-list li:nth-child(5) {
     background-color: #7e57c2;
 }
@@ -92,6 +107,7 @@ body {
     font-size: 14px;
     color: #000;
 }
+
 /* Style the custom checkbox */
 .custom-checkbox {
     display: inline-block;
@@ -102,6 +118,7 @@ body {
     cursor: pointer;
     margin-right: 10px;
 }
+
 /* Style the checkmark (tick) */
 .custom-checkbox::after {
     content: "";
@@ -113,10 +130,12 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
-    opacity: 0; /* By default, the checkmark is hidden */
+    opacity: 0;
+    /* By default, the checkmark is hidden */
 }
+
 /* Show the checkmark when the checkbox is checked */
-input[type="checkbox"]:checked + .custom-checkbox::after {
+input[type="checkbox"]:checked+.custom-checkbox::after {
     opacity: 1;
 }
 
@@ -130,9 +149,11 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
     padding: 80px 90px;
     transition: var(--main-transtion);
 }
+
 .landing-page .active {
     color: var(--main-color);
 }
+
 .landing-page .overlay {
     position: absolute;
     background-color: rgb(12 30 25 / 38%);
@@ -142,6 +163,7 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
     top: 0;
     z-index: 1;
 }
+
 .header-area {
     position: relative;
     z-index: 2;
@@ -149,21 +171,25 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
     display: flex;
     /* padding: 20px 30px; */
 }
+
 .header-area .logo {
     width: 300px;
     font-size: 30px;
     font-weight: bold;
 }
+
 .header-area .links {
     list-style: none;
     width: 100%;
     display: flex;
     justify-content: right;
 }
+
 .header-area .links li:not(:last-child) {
     display: inline-block;
     margin-right: 80px;
 }
+
 .header-area .links li a {
     color: #fff;
     text-decoration: none;
@@ -176,20 +202,24 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
 .header-area .links li .active {
     color: var(--main-color);
 }
+
 .introduction-text {
     position: absolute;
     top: 30%;
     color: #fff;
     z-index: 2;
     width: 500px;
-    
+
 }
+
 .introduction-text h1 {
     font-size: 60px;
 }
+
 .introduction-text p {
     line-height: 1.6;
 }
+
 .landing-page .wise-word {
     position: absolute;
     top: 50%;
@@ -199,10 +229,12 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
     z-index: 2;
     transform: rotate(270deg);
 }
+
 .introduction-text h1 span {
     color: var(--main-color);
     transition: var(--main-transtion);
 }
+
 .introduction-text .explore,
 .introduction-text .read {
     padding: 7px 13px;
@@ -215,9 +247,65 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
     cursor: pointer;
     transition: var(--main-transtion);
 }
+
 .introduction-text .explore,
 .introduction-text .read:hover {
     color: black;
     background-color: var(--main-color);
+}
+
+/* About us Section */
+.about-us {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.about-us .us-text {
+    flex: 1;
+    background-color: #dfe2b3;
+    position: relative;
+    padding: 20px;
+}
+
+.about-us .us-text::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 100%;
+    bottom: 0px;
+    right: -8px;
+    background: #dfe2b3;
+    clip-path: polygon(60% 0, 84% 0, 100% 36%, 89% 85%, 100% 100%, 60% 99%, 60% 43%, 60% 23%);
+}
+
+
+.about-us .us-text .title h2 {
+    display: inline-block;
+    font-size: 40px;
+    font-weight: bold;
+    color: var(--main-color);
+    margin-right: 15px;
+    transition: var(--main-transtion);
+}
+
+.about-us .us-text .title i {
+    font-size: 27px;
+    color: var(--main-color);
+    transition: var(--main-transtion);
+}
+
+.about-us .us-text p {
+    max-width: 500px;
+    line-height: 1.4;
+    color: #484343;
+}
+
+.about-us .us-img {
+    flex: 1;
+}
+
+.about-us .us-img img {
+    width: 100%;
 }
 

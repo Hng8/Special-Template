@@ -65,43 +65,95 @@ function closeSettingsBoxOnClickOutside(event) {
     }
 }
 
-// Get Array Of Images
-let imgsArray = ["01.jpg", "02.jpg", "03.jpg", "04.jpg", "05.jpg"];
+// // Get Array Of Images
+// let imgsArray = ["01.jpg", "02.jpg", "03.jpg", "04.jpg", "05.jpg"];
 
-// Set the background to a background before changeing
-landpage.style.backgroundImage = `url(imgs/05.jpg)`;
+// // Set the background to a background before changeing
+// landpage.style.backgroundImage = `url(imgs/05.jpg)`;
 
 
 
-// Landscape background change
-//  Random Background
+// // Landscape background change
+// //  Random Background
+// function changeBg() {
+//     let checkbox = document.getElementById("checkbox1");
+
+//     // Handle checkbox state change
+//     if (checkbox.checked) {
+//          // Check for saved preference or create interval
+//         if (localStorage.getItem("randomBackground") !== "true") {
+//             let intervalId = setInterval(() => {
+//                 // Get Random Number
+//                 let randomNumber = Math.floor(Math.random() * imgsArray.length);
+    
+//                 // Change Background Image URL
+//                 landpage.style.backgroundImage = `url(imgs/${imgsArray[randomNumber]})`;
+//             }, 5000);
+//             // Store interval ID for future clearing
+//             checkbox.intervalId = intervalId;
+//             // Store "true" prefrence in local storage
+//             localStorage.setItem("randomBackground", "true");
+//         }
+//     } else {
+//         // Clear interval if neccessary
+//         if (checkbox.intervalId) {
+//             clearInterval(checkbox.intervalId);
+//             checkbox.intervalId = null // Remove refrence
+//         }
+//         landpage.style.backgroundImage = `url(imgs/05.jpg)`;
+//         // Remove local storage prefrence to avoid conflicts
+//         localStorage.removeItem("randomBackground")
+//     }
+// }
+
+// // Check for exsisting prefrence on page load
+// if (localStorage.getItem("randomBackground") === "true") {
+//     checkbox.checked = true;
+//     changeBg() // Trigger background change if prefrence is true
+// }
+
+// Get array of images
+const imgsArray = ["01.jpg", "02.jpg", "03.jpg", "04.jpg", "05.jpg"];
+
+// Set initial background image (assuming 'landpage' is the element)
+const initialImageIndex = 4; // Set initial image to 05.jpg (index 4)
+landpage.style.backgroundImage = `url(imgs/${imgsArray[initialImageIndex]})`;
+
+// Define function to change background image
 function changeBg() {
-    // console.log("Checkbox clicked")
-    let checkbox = document.getElementById("checkbox1");
+    const checkbox = document.getElementById("checkbox1");
 
+    // Handle checkbox state change
     if (checkbox.checked) {
-        // Update local storage with the current checkbox state
-        localStorage.setItem("randomBg", checkbox.checked);
-        console.log("true")
-
-        let intervalId = setInterval(() => {
-            // Get Random Number
-            let randomNumber = Math.floor(Math.random() * imgsArray.length);
-
-            // Change Background Image URL
-            landpage.style.backgroundImage = `url(imgs/${imgsArray[randomNumber]})`;
-        }, 5000);
-
-        // Store the interval ID in case it needs to be cleared
-        checkbox.intervalId = intervalId;
+        // Check for saved preference or create interval
+        if (localStorage.getItem("randomBackground") !== "true") {
+            const intervalId = setInterval(() => {
+                const randomNumber = Math.floor(Math.random() * imgsArray.length);
+                landpage.style.backgroundImage = `url(imgs/${imgsArray[randomNumber]})`;
+            }, 5000);
+            // Store interval ID for future clearing
+            checkbox.intervalId = intervalId;
+            // Store "true" preference in local storage
+            localStorage.setItem("randomBackground", "true");
+        }
     } else {
-        // Clear The Interval if it exists
-        console.log("false")
-        clearInterval(checkbox.intervalId);
-        landpage.style.backgroundImage = `url(imgs/05.jpg)`;
-        // checkbox.unchecked;
+        // Clear interval if necessary
+        if (checkbox.intervalId) {
+            clearInterval(checkbox.intervalId);
+            checkbox.intervalId = null; // Remove reference
+        }
+        landpage.style.backgroundImage = `url(imgs/${imgsArray[initialImageIndex]})`; // Reset to initial image
+        // Remove local storage preference to avoid conflicts
+        localStorage.removeItem("randomBackground");
     }
 }
+
+// Check for existing preference on page load
+if (localStorage.getItem("randomBackground") === "true") {
+    checkbox.checked = true;
+    changeBg(); // Trigger background change if preference is true
+}
+
 
 colorOptions.forEach((color) => {
     color.addEventListener("click", (e) => {
