@@ -280,17 +280,18 @@ input[type="checkbox"]:checked+.custom-checkbox::after {
 }
 
 
-.about-us .us-text .title h2 {
+.about-us .us-text h2 {
     display: inline-block;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
     color: var(--main-color);
     margin-right: 15px;
     transition: var(--main-transtion);
 }
 
-.about-us .us-text .title i {
-    font-size: 27px;
+.about-us .us-text i {
+    font-size: 30px;
+    margin-left: 10px;
     color: var(--main-color);
     transition: var(--main-transtion);
 }
@@ -307,5 +308,64 @@ input[type="checkbox"]:checked+.custom-checkbox::after {
 
 .about-us .us-img img {
     width: 100%;
+    height: 100%;
 }
 
+/* SKills section */
+
+.skills {
+    padding-top: 50px;
+    background-color: #eee;
+}
+
+.skills h2 {
+    font-weight: bold;
+    font-size: 30px;
+    color: var(--main-color);
+    margin: 0 15px 50px 35px;
+    text-align: center;
+    transition: var(--main-transtion);
+}
+.skills .skill-box {
+    background-color: #fff;
+    display: flex;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+@media (max-width: 767px) {
+    .skills .skill-box {
+        display: block;
+    }
+}
+.skills .skill-box .skill-name {
+    font-weight: bold;
+    width: 300px;
+    text-align: center;
+    line-height: 30px;
+}
+@media (max-width: 767px) {
+    .skills .skill-box .skill-name {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}
+.skills .skill-box .skill-progress {
+    height: 30px;
+    width: 100%;
+    background-color: #f6f6f6;
+    border-radius: 6px;
+    position: relative;
+    /* overflow: hidden; */
+    text-align: center;
+    font-weight: bold;
+    padding: 5px;
+}
+.skills .skill-box .skill-progress span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0%;
+    height: 100%;
+    background-color: var(--main-color);
+    transition: all .5s;
+}

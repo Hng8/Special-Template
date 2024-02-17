@@ -25,20 +25,20 @@ if (mainColors !== null) {
     });
 }
 // Check if there's a preference stored in local storage
-let isRandomBg = localStorage.getItem("randomBg");
+// let isRandomBg = localStorage.getItem("randomBackground");
 
-// Get the checkbox element
-let checkbox = document.getElementById("checkbox1");
+// // Get the checkbox element
+// let checkbox = document.getElementById("checkbox1");
 
-// If there's a preference, update the checkbox state accordingly
-if (isRandomBg !== true) {
-    checkbox.checked = (isRandomBg === "true"); // Convert string to boolean
-    if (checkbox.checked) {
-        changeBg(); // If random background is preferred, call changeBg to start changing the background randomly
-    }
-} else {
-    checkbox.checked = false;
-}
+// // If there's a preference, update the checkbox state accordingly
+// if (isRandomBg !== true) {
+//     checkbox.checked = (isRandomBg === "true"); // Convert string to boolean
+//     if (checkbox.checked) {
+//         changeBg(); // If random background is preferred, call changeBg to start changing the background randomly
+//     }
+// } else {
+//     checkbox.checked = false;
+// }
 
 // Select gear variable and Show setting box
 gear.addEventListener("click", () => {
@@ -65,52 +65,7 @@ function closeSettingsBoxOnClickOutside(event) {
     }
 }
 
-// // Get Array Of Images
-// let imgsArray = ["01.jpg", "02.jpg", "03.jpg", "04.jpg", "05.jpg"];
-
-// // Set the background to a background before changeing
-// landpage.style.backgroundImage = `url(imgs/05.jpg)`;
-
-
-
-// // Landscape background change
-// //  Random Background
-// function changeBg() {
-//     let checkbox = document.getElementById("checkbox1");
-
-//     // Handle checkbox state change
-//     if (checkbox.checked) {
-//          // Check for saved preference or create interval
-//         if (localStorage.getItem("randomBackground") !== "true") {
-//             let intervalId = setInterval(() => {
-//                 // Get Random Number
-//                 let randomNumber = Math.floor(Math.random() * imgsArray.length);
-    
-//                 // Change Background Image URL
-//                 landpage.style.backgroundImage = `url(imgs/${imgsArray[randomNumber]})`;
-//             }, 5000);
-//             // Store interval ID for future clearing
-//             checkbox.intervalId = intervalId;
-//             // Store "true" prefrence in local storage
-//             localStorage.setItem("randomBackground", "true");
-//         }
-//     } else {
-//         // Clear interval if neccessary
-//         if (checkbox.intervalId) {
-//             clearInterval(checkbox.intervalId);
-//             checkbox.intervalId = null // Remove refrence
-//         }
-//         landpage.style.backgroundImage = `url(imgs/05.jpg)`;
-//         // Remove local storage prefrence to avoid conflicts
-//         localStorage.removeItem("randomBackground")
-//     }
-// }
-
-// // Check for exsisting prefrence on page load
-// if (localStorage.getItem("randomBackground") === "true") {
-//     checkbox.checked = true;
-//     changeBg() // Trigger background change if prefrence is true
-// }
+let checkbox = document.getElementById("checkbox1");
 
 // Get array of images
 const imgsArray = ["01.jpg", "02.jpg", "03.jpg", "04.jpg", "05.jpg"];
@@ -154,7 +109,6 @@ if (localStorage.getItem("randomBackground") === "true") {
     changeBg(); // Trigger background change if preference is true
 }
 
-
 colorOptions.forEach((color) => {
     color.addEventListener("click", (e) => {
         // Remove "active" class from all color options
@@ -175,3 +129,30 @@ colorOptions.forEach((color) => {
         localStorage.setItem("color_option", newColor);
     });
 });
+
+// // Select Skills Selector
+let ourSkills = document.querySelector(".skills");
+
+window.onscroll = function () {
+    // Skills Offset Top
+    let skillsOffsetTop = ourSkills.offsetTop;
+
+    // Skills Outer Height
+    let skillsOuterHeight = ourSkills.offsetHeight;
+
+    // Window Height
+    let windowHeight = this.innerHeight;
+
+    // Window ScrollTop
+    let windowScrollTop = this.pageYOffset;
+
+    if (windowScrollTop > skillsOffsetTop + skillsOuterHeight - windowHeight) {
+        console.log("Scrolling")
+
+        let allSkills = document.querySelectorAll(".skill-box .skill-progress  span");
+
+        allSkills.forEach((skill) => {
+            skill.style.width = skill.dataset.progress;
+        });
+    }
+};
