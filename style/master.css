@@ -326,29 +326,34 @@ input[type="checkbox"]:checked+.custom-checkbox::after {
     text-align: center;
     transition: var(--main-transtion);
 }
+
 .skills .skill-box {
     background-color: #fff;
     display: flex;
     padding: 15px;
     margin-bottom: 15px;
 }
+
 @media (max-width: 767px) {
     .skills .skill-box {
         display: block;
     }
 }
+
 .skills .skill-box .skill-name {
     font-weight: bold;
     width: 300px;
     text-align: center;
     line-height: 30px;
 }
+
 @media (max-width: 767px) {
     .skills .skill-box .skill-name {
         width: 100%;
         margin-bottom: 15px;
     }
 }
+
 .skills .skill-box .skill-progress {
     height: 30px;
     width: 100%;
@@ -360,6 +365,7 @@ input[type="checkbox"]:checked+.custom-checkbox::after {
     font-weight: bold;
     padding: 5px;
 }
+
 .skills .skill-box .skill-progress span {
     position: absolute;
     left: 0;
@@ -369,6 +375,7 @@ input[type="checkbox"]:checked+.custom-checkbox::after {
     background-color: var(--main-color);
     transition: all .5s;
 }
+
 /* Start Gallery */
 .gallery {
     padding-top: 50px;
@@ -383,9 +390,11 @@ input[type="checkbox"]:checked+.custom-checkbox::after {
     text-align: center;
     transition: var(--main-transtion);
 }
+
 .gallery .images-box {
     text-align: center;
 }
+
 .gallery .images-box img {
     width: 200px;
     height: 150px;
@@ -395,6 +404,7 @@ input[type="checkbox"]:checked+.custom-checkbox::after {
     margin: 5px;
     cursor: pointer;
 }
+
 .popup-overlay {
     position: fixed;
     background-color: rgba(0, 0, 0, .7);
@@ -404,6 +414,7 @@ input[type="checkbox"]:checked+.custom-checkbox::after {
     height: 100%;
     z-index: 1000;
 }
+
 .popup-box {
     position: fixed;
     left: 50%;
@@ -414,12 +425,15 @@ input[type="checkbox"]:checked+.custom-checkbox::after {
     padding: 15px;
     z-index: 1001;
 }
+
 .popup-box h3 {
     font-weight: bold;
     text-align: center;
     margin: 0 0 20px;
     color: var(--main-color);
+    transition: var(--main-transtion);
 }
+
 .popup-box img {
     max-width: 100%;
 }
@@ -446,8 +460,145 @@ input[type="checkbox"]:checked+.custom-checkbox::after {
     color: #333
 }
 
-/* Close span */
-/* .popup-box .close-span {
-
-} */
 /* End Gallery */
+/* Start Timeline */
+.timeline {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #EEE;
+}
+
+.timeline .timeline-content {
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline .timeline-content:before {
+    content: '';
+    width: 2px;
+    height: 100%;
+    background-color: var(--main-color);
+    transition: var(--main-transtion);
+    position: absolute;
+    left: 50%;
+    margin-left: -1px;
+    top: 0;
+}
+
+.timeline .timeline-content .year {
+    margin: 20px auto;
+    width: 50px;
+    background-color: var(--main-color);
+    position: relative;
+    z-index: 2;
+    border-radius: 4px;
+    text-align: center;
+    color: #FFF;
+    padding: 2px 5px;
+    font-weight: bold;
+    transition: var(--main-transtion);
+}
+
+.timeline .timeline-content .left,
+.timeline .timeline-content .right {
+    width: calc(50% - 25px);
+    margin-bottom: 40px;
+    position: relative;
+}
+
+@media (max-width: 767px) {
+
+    .timeline .timeline-content .left,
+    .timeline .timeline-content .right {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .timeline .timeline-content .left:before,
+    .timeline .timeline-content .right:before {
+        display: none;
+    }
+
+    .timeline .timeline-content .left .content:before,
+    .timeline .timeline-content .right .content:before {
+        display: none;
+    }
+}
+
+.timeline .timeline-content .left {
+    float: left;
+}
+
+.timeline .timeline-content .left:before {
+    right: -35px;
+}
+
+.timeline .timeline-content .right {
+    float: right;
+}
+
+.timeline .timeline-content .right:before {
+    left: -35px;
+}
+
+.timeline .timeline-content .left:before,
+.timeline .timeline-content .right:before {
+    content: '';
+    width: 14px;
+    height: 14px;
+    background-color: #FFF;
+    border: 3px solid var(--main-color);
+    transition: var(--main-transtion);
+    position: absolute;
+    border-radius: 50%;
+    top: 20px;
+}
+
+.timeline .timeline-content .content {
+    padding: 15px 30px;
+    background-color: #FFF;
+    border-radius: 10px;
+}
+
+.timeline .timeline-content .content h3 {
+    font-weight: bold;
+    color: var(--main-color);
+    margin: 0 0 10px;
+    transition: var(--main-transtion);
+}
+
+.timeline .timeline-content .content p {
+    color: #666;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.timeline .timeline-content .left .content:before {
+    content: '';
+    border-style: solid;
+    border-width: 10px;
+    border-color: transparent transparent transparent #FFF;
+    height: 0;
+    width: 0;
+    position: absolute;
+    right: -20px;
+    top: 20px;
+}
+
+.timeline .timeline-content .right .content:before {
+    content: '';
+    border-style: solid;
+    border-width: 10px;
+    border-color: transparent #FFF transparent transparent;
+    height: 0;
+    width: 0;
+    position: absolute;
+    left: -20px;
+    top: 20px;
+}
+
+/* End Timeline */
