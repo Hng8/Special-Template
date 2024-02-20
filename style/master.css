@@ -10,7 +10,12 @@ body {
 * {
     box-sizing: border-box;
 }
-
+.container {
+    /* width: 1170px; */
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: auto;
+  }
 /* Start Settings box */
 .settings-box {
     position: fixed;
@@ -600,5 +605,121 @@ input[type="checkbox"]:checked+.custom-checkbox::after {
     left: -20px;
     top: 20px;
 }
-
 /* End Timeline */
+/* Start Features */
+.features {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+.features h2 {
+    font-weight: bold;
+    font-size: 30px;
+    color: var(--main-color);
+    margin: 0 0 60px;
+    text-align: center;
+}
+.features .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.features .feat-box {
+    width: calc(100% / 3);
+    /* display: flex;
+    justify-content: space-between; */
+    /* float: left;
+    text-align: center; */
+    margin-bottom: 40px;
+}
+.features .feat-box img {
+    width: 65px;
+    height: 60px;
+}
+.features .feat-box h4 {
+    font-size: 23px;
+    margin: 20px 0 40px;
+    position: relative;
+}
+.features .feat-box h4::before {
+    content: '';
+    width: 40px;
+    height: 4px;
+    background-color: var(--main-color);
+    position: absolute;
+    left: 50%;
+    margin-left: -20px;
+    bottom: -22px;
+}
+.features .feat-box p {
+    width: 80%;
+    max-width: 400px;
+    margin: 0 auto;
+    line-height: 1.7;
+    color: #706f6f;
+
+}
+
+/* End Featues */
+.testimonials {
+    position: relative;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+.testimonials::before {
+    content: '';
+    width: 50%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: var(--main-color);
+    height: 100%;
+}
+.testimonials::after {
+    content: '';
+    width: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #333;
+    height: 100%;
+}
+.testimonials h2 {
+    font-weight: bold;
+    font-size: 30px;
+    color: #fff;
+    margin: 0 0 50px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding-bottom: 25px 
+}
+.testimonials .ts-box {
+    position: relative;
+    z-index: 2;
+    width: calc(98% / 3);
+    float: left;
+    background-color: #fff;
+    padding: 20px;
+}
+.testimonials .ts-box img {
+    border-radius: 50%;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: -40px;
+    left: 50%;
+    margin-left: -50px;
+    border: 6px solid #FFF;
+}
+.testimonials .ts-box:not(:last-of-type) {
+    margin-right: 1%;
+}
+.testimonials .ts-box > p {
+    margin: 40px 0 20px;
+    line-height: 1.5;
+    font-size: 15px;
+    color: #707070;
+    font-style: italic;
+}

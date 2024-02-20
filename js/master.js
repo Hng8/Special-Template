@@ -132,7 +132,6 @@ window.onscroll = function () {
     let windowScrollTop = this.pageYOffset;
 
     if (windowScrollTop > skillsOffsetTop + skillsOuterHeight - windowHeight) {
-        console.log("Scrolling")
 
         let allSkills = document.querySelectorAll(".skill-box .skill-progress  span");
 
