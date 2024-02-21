@@ -217,3 +217,28 @@ document.addEventListener("click", (e) => {
         document.querySelector(".popup-overlay").remove();
     }
 })
+
+// Select All Bullets 
+const allBUllets = document.querySelectorAll(".nav-bullets .bullet");
+
+// Select All Links 
+const allLinks = document.querySelectorAll(".links a");
+
+function scrollToSection(elements) {
+
+    elements.forEach(ele => {
+
+        ele.addEventListener("click", (e) => {
+
+            e.preventDefault(); // Prevent default so when click on a link has hash wont accept it 
+    
+            document.querySelector(e.target.dataset.section).scrollIntoView({
+    
+                behavior: 'smooth'
+            });
+        });
+    });
+}
+
+scrollToSection(allBUllets)
+scrollToSection(allLinks)

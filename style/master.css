@@ -26,6 +26,7 @@ body {
     z-index: 1000;
     min-height: 100vh;
     transition: var(--main-transtion);
+    border: 1px solid #eee;
 }
 
 .settings-box.opened {
@@ -101,11 +102,7 @@ body {
 .settings-box .option-box .colors-list li:nth-child(5) {
     background-color: #7e57c2;
 }
-
-/* Hide the default checkbox */
-/* input[type="checkbox"] {
-    display: none;
-} */
+/* End Nav bullets */
 .option-box label {
     display: block;
     margin-bottom: 10px;
@@ -113,6 +110,59 @@ body {
     color: #000;
 }
 
+/* Start Nav bullets */
+.nav-bullets {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    z-index: 1000;
+}
+.nav-bullets .bullet {
+    width: 20px;
+    height: 20px;
+    border: 3px solid var(--main-color);
+    transition: var(--main-transtion);
+    margin: 10px auto;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    transition: var(--main-transtion);
+}
+.nav-bullets .bullet .tooltip {
+    background-color: var(--main-color);
+    transition: var(--main-transtion);
+    border-radius: 3px;
+    width: 120px;
+    color: #fff;
+    padding: 4px 10px;
+    position: absolute;
+    right: 32px;
+    top: -7px;
+    text-align: center;
+    cursor: default;
+    pointer-events: none;
+    display: none;
+    transition: var(--main-transtion);
+    
+}
+.nav-bullets .bullet .tooltip::before {
+    content: '';
+    border-style: solid;
+    border-width: 10px;
+    border-color: transparent transparent transparent var(--main-color);
+    height: 0;
+    width: 0;
+    position: absolute;
+    right: -19px;
+    top: 50%;
+    transform: translateY(-50%);
+    
+}
+.nav-bullets .bullet:hover .tooltip {
+    display: block;
+}
 /* Style the custom checkbox */
 .custom-checkbox {
     display: inline-block;
@@ -192,15 +242,15 @@ input[type="checkbox"]:checked+.custom-checkbox::after {
 
 .header-area .links li:not(:last-child) {
     display: inline-block;
-    margin-right: 80px;
+    padding-right: 25px;
 }
 
 .header-area .links li a {
     color: #fff;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 16px;
     transition: var(--main-transtion);
-    font-weight: bold;
+
 }
 
 .header-area .links li:hover a,
@@ -590,7 +640,7 @@ input[type="checkbox"]:checked+.custom-checkbox::after {
     height: 0;
     width: 0;
     position: absolute;
-    right: -20px;
+    right: -19px;
     top: 20px;
 }
 
@@ -602,7 +652,7 @@ input[type="checkbox"]:checked+.custom-checkbox::after {
     height: 0;
     width: 0;
     position: absolute;
-    left: -20px;
+    left: -19px;
     top: 20px;
 }
 /* End Timeline */
@@ -673,7 +723,7 @@ input[type="checkbox"]:checked+.custom-checkbox::after {
     position: absolute;
     right: 0;
     top: 0;
-    background-color: var(--main-color);
+    background-color: #333;
     height: 100%;
 }
 .testimonials::after {
@@ -682,7 +732,7 @@ input[type="checkbox"]:checked+.custom-checkbox::after {
     position: absolute;
     left: 0;
     top: 0;
-    background-color: #333;
+    background-color: var(--main-color);
     height: 100%;
 }
 .testimonials h2 {
