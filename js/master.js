@@ -50,59 +50,40 @@ function closeSettingsBoxOnClickOutside(event) {
     }
 }
 
+// Change background image
+
+
 let checkbox = document.getElementById("checkbox1");
-
-// Get array of images
 const imgsArray = ["01.jpg", "02.jpg", "03.jpg", "04.jpg", "05.jpg"];
-
-// Set initial background image (assuming 'landpage' is the element)
-const initialImageIndex = 4; // Set initial image to 05.jpg (index 4)
+const initialImageIndex = 0; // Set initial image to 01.jpg (index 0)
 landpage.style.backgroundImage = `url(imgs/${imgsArray[initialImageIndex]})`;
+let intervalId;
 
-// Define function to change background image
 function changeBg() {
-    const checkbox = document.getElementById("checkbox1");
-
-    // Handle checkbox state change
     if (checkbox.checked) {
-        // Check for saved preference or create interval
-        if (localStorage.getItem("randomBackground") !== "true") {
-            const intervalId = setInterval(() => {
-                const randomNumber = Math.floor(Math.random() * imgsArray.length);
-                landpage.style.backgroundImage = `url(imgs/${imgsArray[randomNumber]})`;
-            }, 5000);
-            // Store interval ID for future clearing
-            checkbox.intervalId = intervalId;
-            // Store "true" preference in local storage
-            localStorage.setItem("randomBackground", "true");
-        }
+        intervalId = setInterval(() => {
+            const randomNumber = Math.floor(Math.random() * imgsArray.length);
+            landpage.style.backgroundImage = `url(imgs/${imgsArray[randomNumber]})`;
+        }, 5000);
+        localStorage.setItem("randomBackground", "true");
     } else {
-        // Clear interval if necessary
-        if (checkbox.intervalId) {
-            clearInterval(checkbox.intervalId);
-            checkbox.intervalId = null; // Remove reference
-        }
-        landpage.style.backgroundImage = `url(imgs/${imgsArray[initialImageIndex]})`; // Reset to initial image
-        // Remove local storage preference to avoid conflicts
+        clearInterval(intervalId);
         localStorage.removeItem("randomBackground");
     }
 }
 
-// Check for existing preference on page load
 if (localStorage.getItem("randomBackground") === "true") {
     checkbox.checked = true;
-    changeBg(); // Trigger background change if preference is true
+    changeBg();
 }
+
+// Color Option 
 
 colorOptions.forEach((color) => {
     color.addEventListener("click", (e) => {
-        // Remove "active" class from all color options
-        e.target.parentElement.querySelectorAll(".active").forEach((element) => {
-            element.classList.remove("active");
-        });
 
-        // Add Active Class On Self
-        e.target.classList.add("active");
+        // Remove "active" class from all color options and Add Active Class On Self
+        handleActive(e);
 
         // get the color attribute and change the root color
         // let newColor = color.getAttribute("data-color");
@@ -240,5 +221,48 @@ function scrollToSection(elements) {
     });
 }
 
-scrollToSection(allBUllets)
-scrollToSection(allLinks)
+scrollToSection(allBUllets);
+scrollToSection(allLinks);
+
+// Remove Active Class From All Children
+function handleActive(e) {
+
+    // Remove Active Class From All Children
+    e.target.parentElement.querySelectorAll(".active").forEach(ele => {
+
+        ele.classList.remove("active");
+    })
+
+    // Add Active Class On Self 
+    e.target.classList.add("active");
+} 
+
+
+// Nav-bullets option settings
+
+let bulletsContainer = document.querySelector(".nav-bullets");
+let bulletLocalItem = localStorage.getItem("bullets-option");
+
+// Function to toggle bullets based on checkbox state
+function toggleBullets(state) {
+    bulletsContainer.style.display = state ? 'block' : 'none';
+}
+
+// Initialize based on local storage or default to unchecked
+if (bulletLocalItem === 'checked') {
+    document.getElementById("checkbox2").checked = true;
+    toggleBullets(true);
+} else {
+    toggleBullets(false);
+}
+
+// Function to handle checkbox change
+function showBullets() {
+    const checkbox2 = document.getElementById("checkbox2");
+    if (checkbox2.checked) {
+        localStorage.setItem("bullets-option", 'checked');
+    } else {
+        localStorage.setItem("bullets-option", 'unchecked');
+    }
+    toggleBullets(checkbox2.checked);
+}
