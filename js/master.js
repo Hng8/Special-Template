@@ -266,3 +266,17 @@ function showBullets() {
     }
     toggleBullets(checkbox2.checked);
 }
+
+// Reset Button 
+document.querySelector(".reset-options").onclick = function () {
+
+    // localStorage.clear(); // If you have keys in the local stoarge that you can't get, don't use this option
+
+    // Remove the local stoarge keys one by one
+    localStorage.removeItem("color_option");
+    localStorage.removeItem("randomBackground");
+    localStorage.removeItem("bullets-option");
+
+    // Reload Window
+    window.location.reload();
+}

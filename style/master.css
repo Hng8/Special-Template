@@ -102,14 +102,28 @@ body {
 .settings-box .option-box .colors-list li:nth-child(5) {
     background-color: #7e57c2;
 }
-/* End Nav bullets */
 .option-box label {
     display: block;
     margin-bottom: 10px;
     font-size: 14px;
     color: #000;
 }
-
+.settings-box .reset-options {
+    background-color: #f44336;
+    border: none;
+    width: 178px;
+    margin: 10px auto;
+    display: block;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--main-transtion);
+}
+.settings-box .reset-options:hover {
+    background-color: #f72f21;
+}
 /* Start Nav bullets */
 .nav-bullets {
     position: fixed;
@@ -163,6 +177,7 @@ body {
 .nav-bullets .bullet:hover .tooltip {
     display: block;
 }
+/* End Nav bullets */
 /* Style the custom checkbox */
 .custom-checkbox {
     display: inline-block;
