@@ -680,6 +680,7 @@ input[type="checkbox"]:checked+.custom-checkbox::after {
     font-weight: bold;
     font-size: 30px;
     color: var(--main-color);
+    transition: var(--main-transtion);
     margin: 0 0 60px;
     text-align: center;
 }
@@ -748,13 +749,14 @@ input[type="checkbox"]:checked+.custom-checkbox::after {
     left: 0;
     top: 0;
     background-color: var(--main-color);
+    transition: var(--main-transtion);
     height: 100%;
 }
 .testimonials h2 {
     font-weight: bold;
     font-size: 30px;
     color: #fff;
-    margin: 0 0 50px;
+    margin: 0 0 70px;
     text-align: center;
     position: relative;
     z-index: 2;
@@ -788,3 +790,92 @@ input[type="checkbox"]:checked+.custom-checkbox::after {
     color: #707070;
     font-style: italic;
 }
+/* Start Contact Us */
+.conatact {
+    min-height: 600px;
+    background-image: url(/imgs/Countries.jpg);
+    background-size: cover;
+    background-position: center center;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    position: relative;
+}
+.conatact .overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255, .6);
+}
+.conatact .container {
+    position: relative;
+    z-index: 2;
+}
+.conatact h2 {
+    font-weight: bold;
+    font-size: 30px;
+    color: var(--main-color);
+    transition: var(--main-transtion);
+    margin: 60px 0 60px;
+    text-align: center;
+}
+.conatact form {
+    overflow: hidden;
+    max-width: 800px;
+    margin: auto;
+}
+.conatact form .left {
+    float: left;
+    width: 49%;
+}
+
+.conatact form .right {
+    float: right;
+    width: 49%;
+}
+.conatact form input:not([type="submit"]),
+.conatact form textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    background-color: rgba(218, 218, 218, 0.19);
+}
+.conatact form input:not([type="submit"]):focus,
+.conatact form textarea:focus {
+    outline: 1px solid var(--main-color);
+    transition: var(--main-transtion);
+}
+.conatact form input {
+    height: 40px;
+}
+.conatact form textarea {
+    height: 150px;
+}
+.conatact form input[type="submit"] {
+    padding: 1px;
+    width: 100%;
+    border-color: transparent;
+    background-color: var(--main-color);
+    transition: var(--main-transtion);
+    color: #fff;
+    cursor: pointer;
+}
+.contact form textarea:focus::-webkit-input-placeholder,
+.contact form input:not([type="submit"]):focus::-webkit-input-placeholder {
+    opacity: 0;
+    transition: var(--main-transtion);
+}
+.contact form textarea:focus:-ms-input-placeholder,
+.contact form input:not([type="submit"]):focus:-ms-input-placeholder {
+    opacity: 0;
+    transition: var(--main-transtion);
+}
+.contact form textarea:focus::placeholder,
+.contact form input:not([type="submit"]):focus::placeholder {
+    opacity: 0;
+    transition: var(--main-transtion);
+}
+/* End Contact Us */
