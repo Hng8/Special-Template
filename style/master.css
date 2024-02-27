@@ -247,10 +247,12 @@ input[type="checkbox"]:checked+.custom-checkbox::after {
     font-size: 30px;
     font-weight: bold;
 }
-
+.header-area .links-container {
+    width: 100%;
+    text-align: right;
+}
 .header-area .links {
     list-style: none;
-    width: 100%;
     display: flex;
     justify-content: right;
 }
@@ -272,7 +274,34 @@ input[type="checkbox"]:checked+.custom-checkbox::after {
 .header-area .links li .active {
     color: var(--main-color);
 }
-
+.header-area .toggle-menu {
+    background: none;
+    border: none;
+    width: 40px;
+    cursor: pointer;
+    margin-top: 15px;
+    display: none;
+    position: relative;
+}
+.header-area .toggle-menu.menu-active:before {
+    content: '';
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+    position: absolute;
+    bottom: -28px;
+    left: 10px;
+}
+.header-area .toggle-menu:focus {
+    outline: none;
+}
+.header-area .toggle-menu span {
+    display: block;
+    background-color: #fff;
+    height: 3px;
+    margin-bottom: 4px;
+    border-radius: 5px;
+}
 .introduction-text {
     position: absolute;
     top: 30%;
@@ -322,6 +351,33 @@ input[type="checkbox"]:checked+.custom-checkbox::after {
 .introduction-text .read:hover {
     color: black;
     background-color: var(--main-color);
+}
+@media (max-width: 991px ) {
+    .header-area .links {
+        display: none;
+    }
+    .header-area .toggle-menu {
+        display: inline-block;
+    }
+    .header-area .links.open {
+        background-color: #fff;
+        padding: 10px;
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 50px;
+        width: 100%;
+        border-radius: 4px;
+        text-align: left;
+    }
+    .header-area .links.open li {
+        display: block;
+        margin: 10px;
+    }
+    .header-area .links.open li a {
+        color: var(--main-color);
+        font-weight: bold;
+    }
 }
 
 /* About us Section */
@@ -385,6 +441,7 @@ input[type="checkbox"]:checked+.custom-checkbox::after {
 
 .skills {
     padding-top: 50px;
+    padding-bottom: 50px;
     background-color: #eee;
 }
 
@@ -879,3 +936,25 @@ input[type="checkbox"]:checked+.custom-checkbox::after {
     transition: var(--main-transtion);
 }
 /* End Contact Us */
+/* Start Grid System */
+@media (min-width: 576px) { /* Small Devices => LandScape Phones */
+    .container {
+        max-width: 540px;
+    }
+}
+@media (min-width: 768px) { /* Medium Devices => Tablets */
+    .container {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px) { /* Desktops */
+    .container {
+        max-width: 960px;
+    }
+}
+@media (min-width: 1200px) { /* Large Screens */
+    .container {
+        max-width: 1140px;
+    }
+}
+/* End Grid System */
