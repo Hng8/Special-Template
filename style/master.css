@@ -124,6 +124,18 @@ body {
 .settings-box .reset-options:hover {
     background-color: #f72f21;
 }
+
+/* Headroom */
+.headroom {
+    will-change: transform;
+    transition: transform 200ms linear;
+}
+.headroom--pinned {
+    transform: translateY(0%);
+}
+.headroom--unpinned {
+    transform: translateY(-100%);
+}
 /* Start Nav bullets */
 .nav-bullets {
     position: fixed;

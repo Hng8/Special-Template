@@ -267,15 +267,53 @@ function showBullets() {
     toggleBullets(checkbox2.checked);
 }
 
+let headroom; // Declare headroom as a global variable
+
+// Function to apply Headroom styling
+function applyHeaderRoom() {
+    let header = document.querySelector('header');
+    headroom = new Headroom(header, {
+        tolerance: 5, // Minimum scroll distance (pixels) to trigger pinning
+        offset: 5,  // Delay in pixels before pinning/unpinning
+    });
+    headroom.init();
+}
+
+// Function to remove Headroom styling
+function removeHeaderRoom() {
+    headroom.destroy(); // Access the global headroom variable to destroy the Headroom instance
+}
+
+// Function to toggle Headroom styling and save preference to local storage
+function toggleHeaderRoom() {
+    const checkbox3 = document.getElementById("checkbox3");
+    if (checkbox3.checked) {
+        localStorage.setItem("hide-Header", 'checked');
+        applyHeaderRoom();
+    } else {
+        localStorage.setItem("hide-Header", 'unchecked');
+        removeHeaderRoom();
+    }
+}
+
+// Check for existing preference on page load
+window.onload = function() {
+    const hideHeaderPref = localStorage.getItem("hide-Header");
+    if (hideHeaderPref === "checked") {
+        document.getElementById("checkbox3").checked = true;
+        applyHeaderRoom();
+    }
+};
+
 // Reset Button 
 document.querySelector(".reset-options").onclick = function () {
 
-    // localStorage.clear(); // If you have keys in the local stoarge that you can't get, don't use this option
+    localStorage.clear(); // If you have keys in the local stoarge that you can't get, don't use this option
 
     // Remove the local stoarge keys one by one
-    localStorage.removeItem("color_option");
-    localStorage.removeItem("randomBackground");
-    localStorage.removeItem("bullets-option");
+    // localStorage.removeItem("color_option");
+    // localStorage.removeItem("randomBackground");
+    // localStorage.removeItem("bullets-option");
 
     // Reload Window
     window.location.reload();

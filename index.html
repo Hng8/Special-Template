@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style/font-awesome.min.css" />
     <link rel="stylesheet" href="style/normlize.css" />
     <link rel="stylesheet" href="style/master.css" />
+    <script src="https://unpkg.com/headroom.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet"
@@ -18,7 +19,7 @@
     <!-- Start Settings Box -->
     <div class="settings-box">
         <div class="gear">
-            <i class="fa fa-gear"></i>
+            <i class ="fa fa-gear"></i>
         </div>
         <div class="settings-container">
             <div class="option-box">
@@ -38,6 +39,10 @@
             <div class="option-box">
                 <label for="checkbox2">Show Bullets</label>
                 <input type="checkbox" id="checkbox2" class="custom-checkbox" onchange="showBullets()" />
+            </div>
+            <div class="option-box">
+                <label for="checkbox3">HeadRoom</label>
+                <input type="checkbox" id="checkbox3" class="custom-checkbox" onchange="toggleHeaderRoom()" />
             </div>
             <button class="reset-options">Reset Options</button>
         </div>
@@ -69,7 +74,7 @@
     <div class="landing-page">
         <div class="overlay"></div>
         <div class="container">
-            <div class="header-area">
+            <header class="header-area">
                 <div class="logo">Special Design</div>
                 <div class="links-container">
                     <ul class="links">
@@ -86,7 +91,7 @@
                         <span></span>
                     </button>
                 </div>
-            </div>
+            </header>
         
         <div class="introduction-text">
             <h1>We Are <span>Creative</span> Agency</h1>
@@ -344,7 +349,7 @@
     <div class="conatact">
         <div class="overlay">
             <div class="container">
-                <h2>Conatct Us</h2>
+                <h2>Contact Us</h2>
                 <form action="">
                     <div class="left">
                         <input type="text" placeholder="Your Name" name="username">
