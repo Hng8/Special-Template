@@ -5,8 +5,6 @@ let gear = document.querySelector(".gear");
 let gearIcon = document.querySelector(".gear i");
 let colorOptions = document.querySelectorAll(".option-box .colors-list li");
 
-// Settings
-
 // Check If There's Local Storage Color options
 let mainColors = localStorage.getItem("color_option");
 
